@@ -10,7 +10,9 @@ def split_glued_words(glued_text: str) -> str:
     llm = ChatOllama(model="llama3.1:latest")
 
     prompt = ChatPromptTemplate.from_template("""
-    you're an expert at rewriting text where all the words are glued together.
+    You're an expert at splitting glued words.
+    Keep numbers as they are.
+    If there is no glued word in the text, return the text as is.
     Here's some examples:
      - ProductDimensions becomes product dimension
      - Manufacturerrecommendedage becomes manufacturer recommended age
@@ -24,6 +26,6 @@ def split_glued_words(glued_text: str) -> str:
 
 
 if __name__ == "__main__":
-    text = "Itemmodelnumber"
+    text = "3x3.8x3inches"
     rewritten = split_glued_words(glued_text=text)
     print(f"{text} -> {rewritten}")
