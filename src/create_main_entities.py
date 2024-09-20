@@ -16,9 +16,8 @@ def load_data():
     # Create a new column with specifications as a dictionary
     eval_data['Parsed Specifications'] = eval_data[
         'Product Specification'].apply(parse_specifications)
-    eval_data.to_json("../data/eval_data.json",
-                      orient="records",
-                      lines=True)
+    eval_data.to_parquet(path="../data/product_data.parquet",
+                         engine='pyarrow')
     return data
 
 
