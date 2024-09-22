@@ -1,10 +1,8 @@
-import pandas as pd
-
 from src.modules.split_glued_words import split_glued_words
 
 
-def parse_specifications(spec_str):
-    if pd.isna(spec_str) or spec_str == '':
+def parse_specifications(spec_str: str) -> dict:
+    if not spec_str:
         return {}
     specs = spec_str.split('|')
     spec_dict = {}
