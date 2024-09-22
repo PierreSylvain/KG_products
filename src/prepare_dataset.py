@@ -14,7 +14,6 @@ def parallel_parse_specifications(specifications_list, func, max_workers=4):
 
 def prepare_dataset():
     eval_data = pl.read_parquet("../data/eval-00000-of-00001.parquet")
-    eval_data = eval_data[:3]
 
     # Extract "Product Specification" column as a Python list
     spec_list = eval_data["Product Specification"].to_list()
